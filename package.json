@@ -5,8 +5,6 @@
   "private": true,
   "engines": {
     "node": "26.x"
-  },
-  "config": {
-    "platform-check": false
   }
 }
+
