@@ -6,6 +6,10 @@
  * Mengarahkan setiap request HTTP dari Vercel ke script PHP yang sesuai.
  */
 
+// Sembunyikan pesan Deprecated notice agar tampilan web bersih
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+ini_set('display_errors', '0');
+
 // 1. Ekstrak path URL yang diminta
 $requestUri = $_SERVER['REQUEST_URI'] ?? '/';
 $path = parse_url($requestUri, PHP_URL_PATH);

@@ -17,6 +17,12 @@ define('APP_AUTHOR', 'Sanitarian Development Team');
 // Deteksi lingkungan Vercel / Serverless
 $isVercel = getenv('VERCEL') || !empty($_ENV['VERCEL']);
 
+// Sembunyikan notifikasi Deprecated di lingkungan production / Vercel
+if ($isVercel) {
+    error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+    ini_set('display_errors', '0');
+}
+
 // Mulai Session jika belum aktif
 if (session_status() === PHP_SESSION_NONE) {
     // Pada Vercel / AWS Lambda, hanya folder /tmp yang dapat ditulisi untuk session

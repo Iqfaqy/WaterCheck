@@ -32,12 +32,14 @@ try {
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_EMULATE_PREPARES   => false,
-        PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES " . DB_CHARSET
     ];
 
     // Dukungan SSL untuk Cloud MySQL (Aiven, TiDB Cloud, PlanetScale, Clever Cloud, Railway, Supabase)
     if ($dbSsl === 'true' || $dbSsl === '1' || getenv('MYSQL_ATTR_SSL_CA')) {
-        $options[PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = false;
+        $sslKey = defined('Pdo\Mysql::ATTR_SSL_VERIFY_SERVER_CERT')
+            ? \Pdo\Mysql::ATTR_SSL_VERIFY_SERVER_CERT
+            : (defined('PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT') ? PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT : 1014);
+        $options[$sslKey] = false;
     }
 
     $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
