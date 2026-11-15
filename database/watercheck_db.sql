@@ -5,9 +5,6 @@
 -- Kompatibel: MySQL 5.7+ / MariaDB 10.3+ / XAMPP
 -- ========================================================
 
-CREATE DATABASE IF NOT EXISTS `watercheck_db` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `watercheck_db`;
-
 -- --------------------------------------------------------
 -- 1. Tabel users
 -- --------------------------------------------------------

@@ -94,6 +94,59 @@ define('DB_PASS', '');
 
 ---
 
+## 3.2. PANDUAN LENGKAP DEPLOY KE VERCEL (CLOUD HOSTING)
+
+Aplikasi **WaterCheck** sudah dilengkapi konfigurasi serverless Vercel (`vercel.json`, `api/index.php`, `.vercelignore`, dan dukungan Environment Variables).
+
+Karena Vercel adalah platform serverless tanpa database lokal bawaan, Anda membutuhkan **Database MySQL Online** (gratis) untuk menyimpan data.
+
+### Langkah 1: Siapkan Database MySQL Cloud (Gratis)
+Pilih salah satu penyedia cloud MySQL gratis terpopuler:
+1. **Aiven for MySQL** (Rekomendasi, gratis selamanya / Free Tier, support SSL) di [aiven.io](https://aiven.io)
+2. **TiDB Cloud** (Serverless MySQL gratis 25 GB) di [tidbcloud.com](https://tidbcloud.com)
+3. **Clever Cloud** (Add-on MySQL gratis 20MB) di [clever-cloud.com](https://clever-cloud.com)
+4. **Railway** di [railway.app](https://railway.app)
+
+Setelah database cloud dibuat:
+- Buka antarmuka manajemen database (phpMyAdmin / DBeaver / TablePlus / Console Cloud).
+- Impor file skema: `database/watercheck_db.sql`.
+
+### Langkah 2: Upload Proyek ke GitHub
+1. Buat repositori baru di akun GitHub Anda (misal: `watercheck`).
+2. Di folder proyek komputer Anda, jalankan:
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit WaterCheck for Vercel"
+   git branch -M main
+   git remote add origin https://github.com/USERNAME_ANDA/watercheck.git
+   git push -u origin main
+   ```
+
+### Langkah 3: Deploy di Vercel Dashboard
+1. Buka [vercel.com](https://vercel.com) dan login dengan akun GitHub Anda.
+2. Klik tombol **"Add New..."** &rarr; **"Project"**.
+3. Pilih repositori `watercheck` dari daftar GitHub Anda, lalu klik **"Import"**.
+4. Di bagian **Environment Variables**, tambahkan variabel koneksi database cloud Anda:
+
+| Variabel | Contoh Nilai | Keterangan |
+|---|---|---|
+| `DB_HOST` | `mysql-xxxxx.aivencloud.com` | Host MySQL Cloud Anda |
+| `DB_PORT` | `3306` (atau port cloud seperti `14332`) | Port MySQL Cloud |
+| `DB_NAME` | `defaultdb` / `watercheck_db` | Nama database |
+| `DB_USER` | `avnadmin` / user cloud | Username database |
+| `DB_PASS` | `password_cloud_anda` | Password database |
+| `DB_SSL` | `true` | Wajib `true` jika cloud mewajibkan SSL (seperti Aiven / TiDB) |
+
+5. Klik tombol **Deploy**.
+6. Vercel akan otomatis meng-compile dan meluncurkan aplikasi Anda dalam hitungan detik di domain:
+   ```text
+   https://watercheck-xxx.vercel.app
+   ```
+7. Aplikasi siap diakses secara online dari mana saja!
+
+---
+
 ## 4. AKUN DEMO PENGUJIAN
 
 Untuk mempermudah evaluasi dan pengujian, sistem telah dilengkapi dengan 2 akun bawaan dengan peran berbeda:
