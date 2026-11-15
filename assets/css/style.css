@@ -1,0 +1,472 @@
+/**
+ * WaterCheck / HydroSan - Custom Stylesheet
+ * Desain Dashboard Administrasi Modern, Bersih, dan Profesional
+ * Warna Utama: Biru Air (#168AAD), Biru Tua (#184E77), Abu-abu Muda (#f4f6f9)
+ */
+
+:root {
+  --wc-primary: #168aad;
+  --wc-primary-dark: #184e77;
+  --wc-primary-hover: #1a759f;
+  --wc-accent: #52b69a;
+  --wc-accent-light: #d8f3dc;
+  --wc-bg: #f4f6f9;
+  --wc-sidebar-bg: #184e77;
+  --wc-sidebar-hover: #1e6091;
+  --wc-sidebar-active: #168aad;
+  --wc-text-main: #2b2d42;
+  --wc-text-muted: #6c757d;
+  --wc-success: #2a9d8f;
+  --wc-warning: #e9c46a;
+  --wc-danger: #e76f51;
+  --wc-border: #e2e8f0;
+  --wc-radius: 12px;
+  --wc-shadow: 0 4px 20px rgba(24, 78, 119, 0.08);
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--wc-bg);
+  color: var(--wc-text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Typography & Links */
+a {
+  color: var(--wc-primary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+a:hover {
+  color: var(--wc-primary-dark);
+}
+
+/* Custom Buttons */
+.btn-primary {
+  background-color: var(--wc-primary);
+  border-color: var(--wc-primary);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 0.5rem 1.1rem;
+  transition: all 0.2s;
+}
+.btn-primary:hover, .btn-primary:focus {
+  background-color: var(--wc-primary-hover);
+  border-color: var(--wc-primary-hover);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(22, 138, 173, 0.3);
+}
+
+.btn-secondary {
+  background-color: var(--wc-primary-dark);
+  border-color: var(--wc-primary-dark);
+  border-radius: 8px;
+  color: #fff;
+}
+.btn-secondary:hover {
+  background-color: #123856;
+  border-color: #123856;
+}
+
+.btn-outline-primary {
+  color: var(--wc-primary);
+  border-color: var(--wc-primary);
+  border-radius: 8px;
+}
+.btn-outline-primary:hover {
+  background-color: var(--wc-primary);
+  border-color: var(--wc-primary);
+  color: #fff;
+}
+
+/* App Wrapper Layout */
+.app-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Sidebar Styling */
+.app-sidebar {
+  width: 270px;
+  background: linear-gradient(180deg, #184e77 0%, #1a5276 50%, #0e304b 100%);
+  color: #fff;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1040;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-brand {
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  color: #fff;
+}
+.sidebar-brand:hover {
+  color: #fff;
+}
+.sidebar-brand img {
+  width: 42px;
+  height: 42px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+.brand-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 0;
+  line-height: 1.2;
+}
+.brand-subtitle {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
+}
+
+.sidebar-menu {
+  padding: 1rem 0.75rem;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.menu-category {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: rgba(255, 255, 255, 0.45);
+  padding: 0.75rem 0.75rem 0.35rem 0.75rem;
+}
+
+.nav-link-custom {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.7rem 0.9rem;
+  color: rgba(255, 255, 255, 0.82);
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+.nav-link-custom i {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.65);
+  transition: all 0.2s ease;
+}
+.nav-link-custom:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  transform: translateX(3px);
+}
+.nav-link-custom:hover i {
+  color: #fff;
+}
+
+.nav-link-custom.active {
+  background: var(--wc-primary);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(22, 138, 173, 0.4);
+}
+.nav-link-custom.active i {
+  color: #fff;
+}
+
+.sidebar-footer {
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Main Content Area */
+.app-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Top Navbar */
+.app-navbar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--wc-border);
+  padding: 0.85rem 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+.navbar-clock {
+  font-size: 0.85rem;
+  color: var(--wc-text-muted);
+  background: var(--wc-bg);
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--wc-border);
+}
+
+.user-profile-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.user-profile-badge:hover {
+  background: var(--wc-bg);
+}
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--wc-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Content Body */
+.app-content {
+  padding: 1.75rem;
+  flex-grow: 1;
+}
+
+/* Cards */
+.card-wc {
+  background: #ffffff;
+  border: 1px solid var(--wc-border);
+  border-radius: var(--wc-radius);
+  box-shadow: var(--wc-shadow);
+  margin-bottom: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-wc:hover {
+  box-shadow: 0 6px 25px rgba(24, 78, 119, 0.12);
+}
+
+.card-wc-header {
+  padding: 1.15rem 1.35rem;
+  border-bottom: 1px solid var(--wc-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-wc-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--wc-primary-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card-wc-body {
+  padding: 1.35rem;
+}
+
+/* Stat Cards */
+.stat-card {
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-radius: var(--wc-radius);
+  background: #ffffff;
+  border: 1px solid var(--wc-border);
+  box-shadow: var(--wc-shadow);
+  position: relative;
+  overflow: hidden;
+}
+.stat-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+.stat-icon.primary { background: #e0f2fe; color: var(--wc-primary); }
+.stat-icon.success { background: #d1fae5; color: var(--wc-success); }
+.stat-icon.warning { background: #fef3c7; color: #b45309; }
+.stat-icon.danger { background: #fee2e2; color: var(--wc-danger); }
+.stat-icon.secondary { background: #e2e8f0; color: var(--wc-primary-dark); }
+
+.stat-value {
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--wc-primary-dark);
+}
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--wc-text-muted);
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+/* Badges Status Baku Mutu */
+.badge-status {
+  padding: 0.45em 0.8em;
+  font-weight: 600;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.badge-ms {
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+.badge-tms {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+.badge-pending {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+/* Tables */
+.table-wc {
+  width: 100%;
+  margin-bottom: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.table-wc th {
+  background-color: #f8fafc;
+  color: var(--wc-primary-dark);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.85rem 1rem;
+  border-bottom: 2px solid var(--wc-border);
+}
+.table-wc td {
+  padding: 0.85rem 1rem;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--wc-border);
+  font-size: 0.9rem;
+}
+.table-wc tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Forms */
+.form-label {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--wc-primary-dark);
+  margin-bottom: 0.4rem;
+}
+.form-control, .form-select {
+  border-radius: 8px;
+  border: 1px solid var(--wc-border);
+  padding: 0.55rem 0.85rem;
+  font-size: 0.92rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.form-control:focus, .form-select:focus {
+  border-color: var(--wc-primary);
+  box-shadow: 0 0 0 0.2rem rgba(22, 138, 173, 0.18);
+}
+
+/* Safety Alert Box for Chlorination */
+.alert-chlorine-safety {
+  background-color: #eff6ff;
+  border-left: 4px solid var(--wc-primary);
+  color: #1e3a8a;
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+}
+
+/* Footer */
+.app-footer {
+  background: #ffffff;
+  border-top: 1px solid var(--wc-border);
+  padding: 1rem 1.75rem;
+  font-size: 0.85rem;
+  color: var(--wc-text-muted);
+}
+
+/* Login Page Styling */
+.login-body {
+  background: linear-gradient(135deg, #184e77 0%, #168aad 50%, #34a0a4 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+.login-card {
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+.login-card-header {
+  background: #f8fafc;
+  padding: 2.2rem 2rem 1.5rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--wc-border);
+}
+.login-card-body {
+  padding: 2rem;
+}
+
+/* Responsive Sidebar Toggle */
+@media (max-width: 991.98px) {
+  .app-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -270px;
+  }
+  .app-sidebar.show {
+    left: 0;
+  }
+  .sidebar-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1030;
+    display: none;
+  }
+  .sidebar-backdrop.show {
+    display: block;
+  }
+}

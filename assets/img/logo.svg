@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="waterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34A0A4" />
+      <stop offset="50%" stop-color="#168AAD" />
+      <stop offset="100%" stop-color="#184E77" />
+    </linearGradient>
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#184E77" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  
+  <!-- Outer circle background -->
+  <circle cx="60" cy="60" r="54" fill="#ffffff" filter="url(#dropShadow)" />
+  <circle cx="60" cy="60" r="50" fill="#E8F4F8" />
+  
+  <!-- Water Droplet Silhouette -->
+  <path d="M60 22 C60 22 36 52 36 70 C36 83.2 46.8 94 60 94 C73.2 94 84 83.2 84 70 C84 52 60 22 60 22 Z" fill="url(#waterGrad)" />
+  
+  <!-- Droplet shine highlight -->
+  <path d="M48 64 C48 54 54 42 58 36 C57 40 54 50 54 62 C54 67 56 71 58 74 C52 72 48 68 48 64 Z" fill="#ffffff" opacity="0.35" />
+  
+  <!-- Sanitarian Clean Checkmark -->
+  <path d="M49 68 L57 76 L72 58" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
