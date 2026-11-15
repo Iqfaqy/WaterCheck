@@ -4,6 +4,6 @@
   "description": "Solusi Digital Pemeriksaan dan Penyehatan Kualitas Air",
   "private": true,
   "engines": {
-    "node": "20.x"
+    "node": "26.x"
   }
 }
